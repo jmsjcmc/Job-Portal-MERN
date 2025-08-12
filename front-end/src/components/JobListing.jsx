@@ -96,7 +96,7 @@ export default function JobListing() {
         {jobs.length > 0 && (
           <div className="flex items-center justify-center space-x-2 mt-10">
             <a href="#job-list">
-              <img src={assets.left_arrow_icon} alt="" />
+              <img onClick={() => setCurrentPage(Math.max(currentPage - 1), 1)} src={assets.left_arrow_icon} alt="" />
             </a>
             {Array.from({ length: Math.ceil(jobs.length / 6) }).map(
               (_, index) => (
@@ -114,7 +114,7 @@ export default function JobListing() {
               )
             )}
             <a href="#job-list">
-              <img src={assets.right_arrow_icon} alt="" />
+              <img onClick={ () => setCurrentPage(Math.min(currentPage + 1, Math.ceil(jobs.length / 6)))} src={assets.right_arrow_icon} alt="" />
             </a>
           </div>
         )}
