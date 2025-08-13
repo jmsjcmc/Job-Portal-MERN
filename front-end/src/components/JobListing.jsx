@@ -134,7 +134,7 @@ export default function JobListing() {
         </div>
 
         {/* Pagination */}
-        {jobs.length > 0 && (
+        {filteredJobs.length > 0 && (
           <div className="flex items-center justify-center space-x-2 mt-10">
             <a href="#job-list">
               <img
@@ -143,9 +143,9 @@ export default function JobListing() {
                 alt=""
               />
             </a>
-            {Array.from({ length: Math.ceil(jobs.length / 6) }).map(
+            {Array.from({ length: Math.ceil(filteredJobs.length / 6) }).map(
               (_, index) => (
-                <a href="#job-list">
+                <a key={index} href="#job-list">
                   <button
                     onClick={() => setCurrentPage(index + 1)}
                     className={`w-10 h-10 flex items-center justify-center border border-gray-300 rounded ${
@@ -163,7 +163,7 @@ export default function JobListing() {
               <img
                 onClick={() =>
                   setCurrentPage(
-                    Math.min(currentPage + 1, Math.ceil(jobs.length / 6))
+                    Math.min(currentPage + 1, Math.ceil(filteredJobs.length / 6))
                   )
                 }
                 src={assets.right_arrow_icon}
