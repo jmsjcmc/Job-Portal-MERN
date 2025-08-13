@@ -18,7 +18,7 @@ export default function JobListing() {
         : [...prev, category]
     );
   };
-  const handleLocationChange = () => {
+  const handleLocationChange = (location) => {
     setSelectedLocations((prev) =>
       prev.includes(location)
         ? prev.filter((l) => l !== location)
